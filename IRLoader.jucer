@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="inXOoF" name="IRLoader" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
+              companyName="shortwavapp" companyCopyright="2020" companyWebsite="https://shortwavapp.com"
+              companyEmail="contact@shortwavapp.com">
   <MAINGROUP id="qxiEtq" name="IRLoader">
     <GROUP id="{5BFD37D5-A836-C3C7-5CAA-BA3B4F6A248B}" name="Source">
       <FILE id="mErGL2" name="PluginProcessor.cpp" compile="1" resource="0"
