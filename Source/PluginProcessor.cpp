@@ -178,21 +178,25 @@ void IRLoaderAudioProcessor::setStateInformation (const void* data, int sizeInBy
     // whose contents will have been created by the getStateInformation() call.
 }
 
-void IRLoaderAudioProcessor::loadFile()
+juce::String IRLoaderAudioProcessor::loadFile()
 {
-    juce::FileChooser chooser { "Please load a file" };
+    juce::FileChooser chooser { "Please load an impulse response" };
 
     if (chooser.browseForFileToOpen())
     {
         auto file = chooser.getResult();
-//        auto filename = file.getFileName();
+
         convolver.loadImpulseResponse(
             file,
             juce::dsp::Convolution::Stereo::no,
             juce::dsp::Convolution::Trim::no,
             file.getSize()
         );
+        
+        return file.getFileName();
     }
+    
+    return "No IR loaded...";
 }
 
 //==============================================================================

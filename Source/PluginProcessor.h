@@ -53,7 +53,7 @@ public:
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
     
-    void loadFile();
+    juce::String loadFile();
 
 private:
     juce::dsp::Convolution convolver;

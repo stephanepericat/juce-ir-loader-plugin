@@ -14,7 +14,10 @@ IRLoaderAudioProcessorEditor::IRLoaderAudioProcessorEditor (IRLoaderAudioProcess
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
     loadButton.setButtonText("Load an IR...");
-    loadButton.onClick = [&]() { audioProcessor.loadFile(); };
+    loadButton.onClick = [&]() {
+        juce::String filename = audioProcessor.loadFile();
+        irNameLabel.setText(filename, juce::NotificationType::dontSendNotification);
+    };
     addAndMakeVisible(loadButton);
     
     irNameLabel.setText("No IR loaded...", juce::NotificationType::dontSendNotification);
@@ -35,10 +38,6 @@ void IRLoaderAudioProcessorEditor::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
     g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
-
-//    g.setColour (juce::Colours::white);
-//    g.setFont (15.0f);
-//    g.drawFittedText ("Hello World!", getLocalBounds(), juce::Justification::centred, 1);
 }
 
 void IRLoaderAudioProcessorEditor::resized()
@@ -46,5 +45,5 @@ void IRLoaderAudioProcessorEditor::resized()
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
     loadButton.setBounds(getWidth() / 2 - 75, getHeight() / 2 - 25, 150, 50);
-    irNameLabel.setBounds(getWidth() / 2 - 75, getHeight() / 2 + 35, 150, 50);
+    irNameLabel.setBounds(getWidth() / 2 - 250, getHeight() / 2 + 35, 500, 50);
 }
