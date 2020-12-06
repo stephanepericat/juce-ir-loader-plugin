@@ -14,9 +14,7 @@ IRLoaderAudioProcessorEditor::IRLoaderAudioProcessorEditor (IRLoaderAudioProcess
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
     loadButton.setButtonText("Load an IR...");
-//    loadButton.onClick = [&]() {
-//
-//    };
+    loadButton.onClick = [&]() { audioProcessor.loadFile(); };
     addAndMakeVisible(loadButton);
     
     irNameLabel.setText("No IR loaded...", juce::NotificationType::dontSendNotification);
